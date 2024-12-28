@@ -1,0 +1,26 @@
+﻿@model EntityLayer.TaskItem
+
+<h2>Create Task</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="IsCompleted">Status</label>
+        <select asp-for="IsCompleted" class="form-control">
+            <option value="false">In Progress</option>
+            <option value="true">Completed</option>
+        </select>
+        <span asp-validation-for="IsCompleted" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

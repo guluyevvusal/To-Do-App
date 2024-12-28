@@ -1,0 +1,25 @@
+﻿@model EntityLayer.TaskItem
+
+<h2>Delete Task</h2>
+
+<p>Are you sure you want to delete this task?</p>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">@Model.Description</p>
+        <p class="card-text"><strong>Status:</strong> @(Model.IsCompleted ? "Completed" : "In Progress")</p>
+    </div>
+</div>
+
+<!-- Delete confirmation form -->
+<form asp-action="DeleteConfirmed" method="post">
+    <!-- Hidden input for task ID -->
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Submit button for deleting task -->
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+    <!-- Cancel button to go back to the index page -->
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
